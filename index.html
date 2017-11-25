@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Angular example</title>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> <!-- Angular framework :) -->
-
+    <style>
+        .title{
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body ng-app="myApp">
     <div>
         <!--Adatkötés input mezőből-->
-        <label style="font-weight:bold;">Egyszerű adatkötések:</label>
+        <label class="title">Egyszerű adatkötések:</label>
         <p>Name : <input type="text" ng-model="name" /></p>
         <h1 id="txt">{{name}}</h1>
         <hr>
 
         <!--Adatkötés initializált változóval-->
-        <label ng-init="fruit_1='alma'; fruit_2='banán'">Változó initializásása: ng-int:'initText = alma' </label>
+        <label class="title" ng-init="fruit_1='alma'; fruit_2='banán'">Változó initializásása: ng-int:'fruit_1 = alma'; fruit_2 = banán' </label>
         <p ng-bind="fruit_1 + ' ' + fruit_2"></p>
         <hr>
 
         <!--Aritmetikai műveletek-->
-        <p>Aritmetikai műveletek</p>
+        <p class="title">Aritmetikai műveletek</p>
         <p>Összeadás {{2+2}}</p>
         <p>Kivonás {{2-2}}</p>
         <p>Szorzás {{2*2}}</p>
@@ -29,13 +35,13 @@
         <hr>
 
         <!--CSS módosítása input mezővel-->
-        <p>CSS módosítása input mezővel</p>
+        <p class="title">CSS módosítása input mezővel</p>
         <input style="background-color:{{myCol}}"  type="text" ng-model="myCol" value="{{myCol}}"/> 
         <label> írj be egy szin kódot</label>
         <hr>
 
         <!--Adatok kigyüjtése objektumból-->
-        <p>Adatok kigyüjtése objektumból</p>
+        <p class="title">Adatok kigyüjtése objektumból</p>
         <p ng-init="personObj={ Name: 'Jhon', Age: 18}">
             <label>Név: {{personObj.Name}}</label>
             <br />
@@ -44,7 +50,7 @@
         <hr>
 
         <!--Adatok kigyüjtése Array - ből -->
-        <p>Adatok kigyüjtése Array - ből</p>
+        <p class="title">Adatok kigyüjtése Array - ből</p>
         <p ng-init="personArray = ['Joker', 22,]">
             <label>Név: {{personArray[0]}}</label>
             <br />
@@ -55,20 +61,22 @@
     </div>
     <br />
     
-    <p style="font-weight:bold;">Controllerek alkaplazása</p>
+    <p class="title">Controllerek alkaplazása</p>
     <hr>
     <div ng-controller="Controller_1">
-        <p>Adatok az első kontrollerből:</p>
+        <p class="title">Adatok az első kontrollerből:</p>
         <p>Név: {{name}}</p>
         <p>Kor: {{age}}</p>
     </div>
 
     <div ng-controller="Controller_2">
-        <p>Adatok az első kontrollerből:</p>
+        <p class="title">Adatok az első kontrollerből:</p>
         <p>Név: {{name}}</p>
         <p>Kor: {{age}}</p>
     </div>
     
+    <w3TestDirective></w3TestDirective>
+
     <script>
         //Angular modul létrehozása
         var app = angular.module("myApp",[]); //Ezt az appot használja az oldal
@@ -83,6 +91,18 @@
         app.controller("Controller_2", function($scope){
             $scope.name = "Vilma";
             $scope.age = 55;
+        });
+
+        //Directive létrehozása
+        // app.directive("TeszDirective", function(){
+        //     return {
+        //         template : "<h1>Teszt directive</h1><hr>"
+        //     };
+        // });
+        app.directive("w3TestDirective", function() {
+            return {
+                template : "<h1>Made by a directive!</h1>"
+            };
         });
     </script>
 </body>
