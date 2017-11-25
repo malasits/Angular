@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Angular example</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> <!-- Angular framework :) -->
+
+</head>
+<body ng-app="">
+    <div ng-model="myModel">
+        <!--Adatkötés input mezőből-->
+        <label>Egyszerű adatkötés:</label>
+        <p>Name : <input type="text" ng-model="name" /></p>
+        <h1 id="txt">{{name}}</h1>
+        <hr>
+
+        <!--Adatkötés initializált változóval-->
+        <label ng-init="fruit_1='alma'; fruit_2='banán'">Változó initializásása: ng-int:'initText = alma' </label>
+        <p ng-bind="fruit_1 + ' ' + fruit_2"></p>
+        <hr>
+
+        <!--Aritmetikai műveletek-->
+        <p>Aritmetikai műveletek</p>
+        <p>Összeadás {{2+2}}</p>
+        <p>Kivonás {{2-2}}</p>
+        <p>Szorzás {{2*2}}</p>
+        <p>Osztás {{2/2}}</p>
+        <hr>
+
+        <!--CSS módosítása input mezővel-->
+        <p>CSS módosítása input mezővel</p>
+        <input style="background-color:{{myCol}}"  type="text" ng-model="myCol" value="{{myCol}}"/> 
+        <label> írj be egy szin kódot</label>
+        <hr>
+
+        <!--Adatok kigyüjtése objektumból-->
+        <p>Adatok kigyüjtése objektumból</p>
+        <p ng-init="personObj={ Name: 'Jhon', Age: 18}">
+            <label>Név: {{personObj.Name}}</label>
+            <br />
+            <label>Kor: {{personObj.Age}}</label>
+        </p>
+        <hr>
+
+        <!--Adatok kigyüjtése Array - ből -->
+        <p>Adatok kigyüjtése Array - ből</p>
+        <p ng-init="personArray = ['Joker', 22,]">
+            <label>Név: {{personArray[0]}}</label>
+            <br />
+            <label>Kor: {{personArray[1]}}</label>      
+        </p>
+        <hr>
+    </div>
+</body>
+</html>  
