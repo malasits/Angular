@@ -7,10 +7,10 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> <!-- Angular framework :) -->
 
 </head>
-<body ng-app="">
-    <div ng-model="myModel">
+<body ng-app="myApp">
+    <div>
         <!--Adatkötés input mezőből-->
-        <label>Egyszerű adatkötés:</label>
+        <label style="font-weight:bold;">Egyszerű adatkötések:</label>
         <p>Name : <input type="text" ng-model="name" /></p>
         <h1 id="txt">{{name}}</h1>
         <hr>
@@ -51,6 +51,39 @@
             <label>Kor: {{personArray[1]}}</label>      
         </p>
         <hr>
+
     </div>
+    <br />
+    
+    <p style="font-weight:bold;">Controllerek alkaplazása</p>
+    <hr>
+    <div ng-controller="Controller_1">
+        <p>Adatok az első kontrollerből:</p>
+        <p>Név: {{name}}</p>
+        <p>Kor: {{age}}</p>
+    </div>
+
+    <div ng-controller="Controller_2">
+        <p>Adatok az első kontrollerből:</p>
+        <p>Név: {{name}}</p>
+        <p>Kor: {{age}}</p>
+    </div>
+    
+    <script>
+        //Angular modul létrehozása
+        var app = angular.module("myApp",[]); //Ezt az appot használja az oldal
+
+        //1.Controller létrehozása
+        app.controller("Controller_1", function($scope){
+            $scope.name = "Vilmos";
+            $scope.age = 64;
+        });
+
+        //2.Controller létrehozása
+        app.controller("Controller_2", function($scope){
+            $scope.name = "Vilma";
+            $scope.age = 55;
+        });
+    </script>
 </body>
 </html>  
