@@ -74,8 +74,11 @@
         <p>Név: {{name}}</p>
         <p>Kor: {{age}}</p>
     </div>
+    <hr>
     
-    <w3TestDirective></w3TestDirective>
+    <p class="title">Directive alkalmazásának típusai:</p>
+    <asd></asd>
+    <div asd></div>
 
     <script>
         //Angular modul létrehozása
@@ -94,14 +97,10 @@
         });
 
         //Directive létrehozása
-        // app.directive("TeszDirective", function(){
-        //     return {
-        //         template : "<h1>Teszt directive</h1><hr>"
-        //     };
-        // });
-        app.directive("w3TestDirective", function() {
+
+        app.directive("asd", function() {   //A tag neve nem kezdődhet nagy betűvel!
             return {
-                template : "<h1>Made by a directive!</h1>"
+                template : "<h1>Made by a directive!</h1><hr>"
             };
         });
     </script>
